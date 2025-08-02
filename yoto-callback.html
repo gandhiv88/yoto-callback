@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Yoto OAuth Redirect</title>
+    <script>
+      window.onload = function () {
+        const token = new URL(window.location.href).hash.match(/access_token=([^&]*)/);
+        if (token && token[1]) {
+          window.location.href = "com.gvalliappan.yotoscheduler:/oauth2redirect#access_token=" + token[1];
+        } else {
+          document.body.innerHTML = "<h3>Login failed or token missing.</h3>";
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h2>Redirecting to Yoto Scheduler App...</h2>
+  </body>
+</html>
